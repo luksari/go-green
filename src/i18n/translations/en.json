@@ -1,0 +1,16 @@
+{
+    "translation": {
+        "days_zero": "{{count}} days",
+        "days_one": "{{count}} day",
+        "days_two": "{{count}} days",
+        "days_few": "{{count}} days",
+        "days_many": "{{count}} days",
+        "days_other": "{{count}} days",
+        "countries_zero": "{{count}} Countries",
+        "countries_one": "{{count}} Country",
+        "countries_two": "{{count}} Countries",
+        "countries_few": "{{count}} Countries",
+        "countries_many": "{{count}} Countries",
+        "countries_other": "{{count}} Countries"
+    }
+  }
