@@ -9,9 +9,9 @@ type GetTripsParams = {
 const PER_PAGE = 6;
 
 const getTrips = async ({ pageParam = 0 }: GetTripsParams): Promise<GetTripsRes> => {
-  const offset = pageParam * PER_PAGE;
+  const offset = pageParam;
 
-  const data = await axiosClient.get<GetTripsRes>('/api/trips', {
+  const data = await axiosClient.get<GetTripsRes>('/trips', {
     params: { offset, limit: PER_PAGE },
   });
 
@@ -24,7 +24,7 @@ const getTrips = async ({ pageParam = 0 }: GetTripsParams): Promise<GetTripsRes>
 };
 
 export const useGetInfiniteTrips = () => {
-  return useInfiniteQuery(['trips'], ({ pageParam = 1 }) => getTrips({ pageParam }), {
+  return useInfiniteQuery(['trips'], ({ pageParam = 0 }) => getTrips({ pageParam }), {
     getNextPageParam: (res) => res.offset,
   });
 };
