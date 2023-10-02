@@ -56,6 +56,7 @@ export const TripList = () => {
                     noOfCountries={trip.countries.length}
                     noOfDays={trip.days}
                     title={trip.title}
+                    rating={trip.rating}
                   />
                 );
               }),

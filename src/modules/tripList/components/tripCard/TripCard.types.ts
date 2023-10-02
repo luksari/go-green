@@ -6,4 +6,5 @@ export type TripCardProps = {
   id: number;
   emissionOffset: number;
   imgSrc: string;
+  rating: number;
 };

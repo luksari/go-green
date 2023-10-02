@@ -12,6 +12,7 @@ import {
 import { TripCardProps } from './TripCard.types';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
+import { StarRating } from '../../../../components/starRating/StarRating';
 
 /**
  * @TODO
@@ -20,7 +21,7 @@ import { useTranslation } from 'react-i18next';
  * 3. Tests for showing units in kg/t
  */
 export const TripCard = forwardRef<TripCardProps, 'div'>(
-  ({ className, noOfCountries, emissionOffset, noOfDays, imgSrc, title, id }, ref) => {
+  ({ className, noOfCountries, emissionOffset, noOfDays, imgSrc, title, id, rating }, ref) => {
     const { t } = useTranslation();
     const emissionOffsetInUnit =
       emissionOffset > 1000
@@ -65,7 +66,7 @@ export const TripCard = forwardRef<TripCardProps, 'div'>(
                   borderRadius='md'
                 >
                   <Text>Emission offset:</Text>
-                  <Text ml='auto' align='right'>
+                  <Text ml='auto' align='right' fontWeight={'bold'}>
                     {emissionOffsetInUnit} CO<sub>2</sub>e
                   </Text>
                 </Box>
@@ -74,10 +75,15 @@ export const TripCard = forwardRef<TripCardProps, 'div'>(
                   borderTopLeftRadius={'md'}
                   borderTopRightRadius={'md'}
                   bg='white'
+                  display={'flex'}
+                  flexWrap={'nowrap'}
                   px='2'
                   py='3'
                 >
-                  <Text fontSize={'xs'}>Trip rating: </Text>
+                  <Text mr='auto' fontSize={'xs'} fontWeight={'bold'}>
+                    Trip rating:
+                  </Text>
+                  <StarRating maxStars={5} rating={rating} />
                 </Box>
               </VStack>
             </VStack>
