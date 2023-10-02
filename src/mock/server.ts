@@ -23,7 +23,7 @@ app.get<unknown, GetTripsRes>('/api/trips', (req, res) => {
   return res.status(200).json({ trips, offset, limit, total: allTripDataMock.length });
 });
 
-app.get<unknown, GetTripDetailsRes>('/api/trip', (req, res) => {
+app.get<unknown, GetTripDetailsRes>('/api/single-trip/:tripId', (req, res) => {
   // @NOTE Normally it would return the real data and perform querying in DB via some Controller
   // but for the simplicity reasons we always return the same trip
   const trip = singleTripDataMock;

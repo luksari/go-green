@@ -11,7 +11,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path='/' element={<TripList />} />,
-      <Route path='/:emissionId' element={<TripDetails />} />,
+      <Route path='/:tripId' element={<TripDetails />} />,
     </>,
   ),
 );

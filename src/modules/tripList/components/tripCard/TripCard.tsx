@@ -13,6 +13,7 @@ import { TripCardProps } from './TripCard.types';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { StarRating } from '../../../../components/starRating/StarRating';
+import { useEmissionUnit } from '../../../../hooks/useEmissionsUnit/useEmissionsUnit';
 
 /**
  * @TODO
@@ -23,10 +24,7 @@ import { StarRating } from '../../../../components/starRating/StarRating';
 export const TripCard = forwardRef<TripCardProps, 'div'>(
   ({ className, noOfCountries, emissionOffset, noOfDays, imgSrc, title, id, rating }, ref) => {
     const { t } = useTranslation();
-    const emissionOffsetInUnit =
-      emissionOffset > 1000
-        ? `${(emissionOffset / 1000).toFixed(1)} t`
-        : `${emissionOffset.toFixed(1)} kg`;
+    const emissionOffsetInUnit = useEmissionUnit(emissionOffset);
 
     return (
       <Card className={clsx(className)} size='sm' ref={ref}>
